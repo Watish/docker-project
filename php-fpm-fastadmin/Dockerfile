@@ -21,6 +21,8 @@ RUN apt install -y php7.4-fpm
 # PHP 拓展
 RUN apt install -y php7.4-yaml php7.4-mbstring php7.4-soap php7.4-odbc php7.4-mysql php7.4-sqlite3 php7.4-redis php7.4-gmp php7.4-amqp php7.4-readline php7.4-snmp php7.4-xml php7.4-zip 
 RUN apt update && apt install -y php7.4-gd php7.4-curl  --fix-missing
+RUN mkdir -p /var/lib/php/sessions/
+RUN chmod 777 /var/lib/php/sessions/ -R
 
 # 删除原来的 nginx配置文件
 RUN rm /etc/nginx/nginx.conf
